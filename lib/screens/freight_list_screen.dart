@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
-import 'chat_list_screen.dart';
-import 'profile_screen.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 import 'freight_detail_screen.dart';
 
 class FreightListScreen extends StatefulWidget {
@@ -12,13 +10,40 @@ class FreightListScreen extends StatefulWidget {
 }
 
 class _FreightListScreenState extends State<FreightListScreen> {
-  int _selectedIndex = 3;
 
   final List<Map<String, String>> freights = [
-    {'origin': 'Recife', 'destination': 'Caruaru', 'type': 'Carga Móveis (800kg)', 'price': 'R\$ 4,00/km', 'status': 'Disponível', 'statusColor': 'green'},
-    {'origin': 'Recife', 'destination': 'Garanhuns', 'type': 'Carga Móveis (800kg)', 'price': 'R\$ 4,00/km', 'status': 'Em negociação', 'statusColor': 'amber'},
-    {'origin': 'Recife', 'destination': 'Caruaru', 'type': 'Carga Móveis (800kg)', 'price': 'R\$ 4,00/km', 'status': 'Em negociação', 'statusColor': 'amber'},
-    {'origin': 'Recife', 'destination': 'Gravatá', 'type': 'Carga Móveis (800kg)', 'price': 'R\$ 4,00/km', 'status': 'Disponível', 'statusColor': 'green'},
+    {
+      'origin': 'Recife',
+      'destination': 'Caruaru',
+      'type': 'Carga Móveis (800kg)',
+      'price': 'R\$ 4,00/km',
+      'status': 'Disponível',
+      'statusColor': 'green'
+    },
+    {
+      'origin': 'Recife',
+      'destination': 'Garanhuns',
+      'type': 'Carga Móveis (800kg)',
+      'price': 'R\$ 4,00/km',
+      'status': 'Em negociação',
+      'statusColor': 'amber'
+    },
+    {
+      'origin': 'Recife',
+      'destination': 'Caruaru',
+      'type': 'Carga Móveis (800kg)',
+      'price': 'R\$ 4,00/km',
+      'status': 'Em negociação',
+      'statusColor': 'amber'
+    },
+    {
+      'origin': 'Recife',
+      'destination': 'Gravatá',
+      'type': 'Carga Móveis (800kg)',
+      'price': 'R\$ 4,00/km',
+      'status': 'Disponível',
+      'statusColor': 'green'
+    },
   ];
 
   @override
@@ -42,7 +67,8 @@ class _FreightListScreenState extends State<FreightListScreen> {
                   decoration: InputDecoration(
                     hintText: 'Para onde vamos?',
                     hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
-                    prefixIcon: Icon(Icons.search, color: Colors.black54, size: 26),
+                    prefixIcon: Icon(
+                        Icons.search, color: Colors.black54, size: 26),
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(vertical: 16),
                   ),
@@ -51,7 +77,9 @@ class _FreightListScreenState extends State<FreightListScreen> {
               const SizedBox(height: 24),
               const Text(
                 'Fretes ativos',
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontSize: 17,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
               const SizedBox(height: 14),
               Expanded(
@@ -72,7 +100,8 @@ class _FreightListScreenState extends State<FreightListScreen> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (_) => const FreightDetailScreen()),
+                            MaterialPageRoute(
+                                builder: (_) => const FreightDetailScreen()),
                           );
                         },
                         child: Row(
@@ -81,7 +110,8 @@ class _FreightListScreenState extends State<FreightListScreen> {
                               width: 80,
                               height: 95,
                               decoration: const BoxDecoration(
-                                border: Border(right: BorderSide(color: Color(0xFFE0E0E0))),
+                                border: Border(right: BorderSide(
+                                    color: Color(0xFFE0E0E0))),
                               ),
                               child: const Icon(
                                 Icons.archive_outlined,
@@ -91,22 +121,27 @@ class _FreightListScreenState extends State<FreightListScreen> {
                             ),
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16.0, vertical: 12.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       '${item['origin']} ➔ ${item['destination']}',
-                                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                      style: const TextStyle(fontSize: 16,
+                                          fontWeight: FontWeight.bold),
                                     ),
                                     const SizedBox(height: 4),
                                     Text(
                                       'Carga: Móveis (800kg)',
-                                      style: const TextStyle(fontSize: 14, color: Colors.black87, fontWeight: FontWeight.w500),
+                                      style: const TextStyle(fontSize: 14,
+                                          color: Colors.black87,
+                                          fontWeight: FontWeight.w500),
                                     ),
                                     Text(
                                       'Valor: ${item['price']!}',
-                                      style: const TextStyle(fontSize: 14, color: Colors.black87),
+                                      style: const TextStyle(
+                                          fontSize: 14, color: Colors.black87),
                                     ),
                                     const SizedBox(height: 4),
                                     Text(
@@ -114,7 +149,8 @@ class _FreightListScreenState extends State<FreightListScreen> {
                                       style: TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.bold,
-                                        color: isGreen ? Colors.green : Colors.amber.shade800,
+                                        color: isGreen ? Colors.green : Colors
+                                            .amber.shade800,
                                       ),
                                     ),
                                   ],
@@ -132,48 +168,7 @@ class _FreightListScreenState extends State<FreightListScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomNav(),
-    );
-  }
-
-  Widget _buildBottomNav() {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        border: Border(top: BorderSide(color: Color(0xFFE0E0E0), width: 0.5)),
-      ),
-     child: BottomNavigationBar(
-  currentIndex: _selectedIndex,
-  onTap: (i) {
-    setState(() => _selectedIndex = i);
-   if (i == 1) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const ChatListScreen()),
-      );
-    }
-  if (i == 4) {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (context) => const ProfileScreen()),
-      );
-    }
-  },
-    
-  type: BottomNavigationBarType.fixed,
-  selectedItemColor: const Color(0xFF6C8EEF),
-  unselectedItemColor: Colors.black87,
-  showSelectedLabels: false,
-  showUnselectedLabels: false,
-  elevation: 0,
-  items: const [
-    BottomNavigationBarItem(icon: Icon(Icons.history, size: 30), label: ''),
-    BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_outline_rounded, size: 28), label: ''),
-    BottomNavigationBarItem(icon: Icon(Icons.home_outlined, size: 30), label: ''),
-    BottomNavigationBarItem(icon: Icon(Icons.location_on_outlined, size: 30), label: ''),
-    BottomNavigationBarItem(icon: Icon(Icons.person_outline_rounded, size: 30), label: ''),
-        ],
-      ),
+      bottomNavigationBar: const CustomBottomNavBar(currentIndex: 3),
     );
   }
 }

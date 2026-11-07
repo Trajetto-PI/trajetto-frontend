@@ -4,6 +4,7 @@ import 'screens/chat_list_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/success_dialog.dart';
+import 'screens/map_screen.dart';
 import 'screens/freight_confirmation_screen.dart';
 import 'screens/freight_detail_screen.dart';
 import 'screens/freight_list_screen.dart';
@@ -12,7 +13,6 @@ import 'screens/register_company_screen.dart';
 import 'screens/register_driver_screen.dart';
 import 'screens/role_selection_screen.dart';
 import 'screens/welcome_screen.dart';
-
 
 void main() {
   runApp(const TrajettoApp());
@@ -84,11 +84,3 @@ Widget buildInputField(String label, {bool isPassword = false}) {
     ),
   );
 }
-
-
-
-
-
-
-
-

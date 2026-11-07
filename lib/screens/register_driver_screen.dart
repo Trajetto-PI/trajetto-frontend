@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'freight_list_screen.dart';
+import 'map_screen.dart';
 import '../main.dart';
 
 class RegisterDriverScreen extends StatelessWidget {
@@ -42,7 +42,7 @@ class RegisterDriverScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (_) => const FreightListScreen()),
+                    MaterialPageRoute(builder: (_) => const MapScreen()),
                     (route) => false,
                   );
                 },

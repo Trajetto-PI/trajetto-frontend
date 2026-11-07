@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
-import 'chat_list_screen.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 import 'settings_screen.dart';
-import 'freight_list_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -22,20 +20,20 @@ class ProfileScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-       actions: [
-      Padding(
-        padding: const EdgeInsets.only(right: 16.0),
-        child: IconButton(
-          icon: const Icon(Icons.settings_outlined, color: Colors.black87),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SettingsScreen()),
-            );
-          },
-        ),
-      ),
-    ],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: IconButton(
+              icon: const Icon(Icons.settings_outlined, color: Colors.black87),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SettingsScreen()),
+                );
+              },
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -124,7 +122,7 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: _buildBottomNavigationBar(context),
+      bottomNavigationBar: const CustomBottomNavBar(currentIndex: 4),
     );
   }
 
@@ -302,7 +300,7 @@ class ProfileScreen extends StatelessWidget {
                   Row(
                     children: List.generate(
                       5,
-                      (index) => const Icon(Icons.star, color: Colors.amber, size: 14),
+                          (index) => const Icon(Icons.star, color: Colors.amber, size: 14),
                     ),
                   ),
                 ],
@@ -323,69 +321,6 @@ class ProfileScreen extends StatelessWidget {
           ]
         ],
       ),
-    );
-  }
-
-  // Barra de Navegação Inferior
-  // Barra de Navegação Inferior
-  Widget _buildBottomNavigationBar(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: 4,
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: const Color(0xFF5C7CFA),
-     unselectedItemColor: Colors.black87,
-      showSelectedLabels: false,
-      showUnselectedLabels: false,
-      
-      // === ADICIONA ESTE BLOCO AQUI (linha 1206): ===
-   onTap: (index) {
-        // Índice 0: Histórico
-        if (index == 0) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const FreightListScreen()),
-          );
-        }
-        // Índice 1: Chat
-        if (index == 1) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const ChatListScreen()),
-          );
-        }
-        // Índice 3: Localização / Fretes
-        if (index == 3) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const FreightListScreen()),
-          );
-        }
-        // Índice 4: Perfil (já estamos aqui)
-      },
-      // ===============================================
-
-     items: const [
-  BottomNavigationBarItem(
-    icon: Icon(Icons.history, size: 30), 
-    label: '',
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.chat_bubble_outline_rounded, size: 28), 
-    label: '',
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.home_outlined, size: 30), 
-    label: '',
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.location_on_outlined, size: 30), 
-    label: '',
-  ),
-  BottomNavigationBarItem(
-    icon: Icon(Icons.person_outline_rounded, size: 30), 
-    label: '',
-  ),
-],
     );
   }
 }

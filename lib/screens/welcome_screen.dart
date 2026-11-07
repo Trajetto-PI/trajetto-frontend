@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
 import 'login_screen.dart';
+import 'map_screen.dart';
 import 'role_selection_screen.dart';
-import 'freight_list_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -33,7 +33,7 @@ class WelcomeScreen extends StatelessWidget {
                   height: 180,
                   fit: BoxFit.contain,
                   errorBuilder: (context, error, stackTrace) =>
-                      const Icon(Icons.navigation, size: 100, color: Color(0xFF6C8EEF)),
+                  const Icon(Icons.navigation, size: 100, color: Color(0xFF6C8EEF)),
                 ),
               ),
               const SizedBox(height: 15),
@@ -86,7 +86,7 @@ class WelcomeScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (_) => const FreightListScreen()),
+                    MaterialPageRoute(builder: (_) => const MapScreen()),
                   );
                 },
                 icon: Image.asset(

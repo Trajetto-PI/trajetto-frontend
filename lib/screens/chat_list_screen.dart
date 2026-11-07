@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_bottom_nav_bar.dart';
 import 'chat_detail_screen.dart';
-import 'profile_screen.dart';
-import '../main.dart';
-import 'freight_list_screen.dart';
 
 class ChatListScreen extends StatelessWidget {
-  const ChatListScreen({Key? key}) : super(key: key);
+  const ChatListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +56,7 @@ class ChatListScreen extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   leading: const CircleAvatar(
                     radius: 24,
-                    backgroundColor: Color(0xFF4A6DA7), 
+                    backgroundColor: Color(0xFF4A6DA7),
                     child: Icon(Icons.person, color: Colors.white, size: 28),
                   ),
                   title: const Text(
@@ -77,14 +75,14 @@ class ChatListScreen extends StatelessWidget {
                       fontSize: 13,
                     ),
                   ),
-                onTap: () {
-                   Navigator.push(
-                     context,
-                   MaterialPageRoute(
-               builder: (context) => const ChatDetailScreen(userName: 'Empresa_tal'),
-        ),
-      );
-    },
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ChatDetailScreen(userName: 'Empresa_tal'),
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -93,52 +91,7 @@ class ChatListScreen extends StatelessWidget {
       ),
 
       // BARRA DE NAVEGAÇÃO INFERIOR
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          border: Border(top: BorderSide(color: Color(0xFFE0E0E0), width: 0.5)),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: 1, // Mantém o ícone do Chat destacado (índice 1)
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: const Color(0xFF6C8EEF),
-          unselectedItemColor: Colors.black87,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 0,
-        onTap: (i) {
-            if (i == 0) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const FreightListScreen()),
-              );
-            }
-            if (i == 1) {
-              // Já estamos na tela de chat
-            }
-            // O ícone de localização/fretes (índice 3) vai levar de volta para a lista de fretes:
-            if (i == 3) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const FreightListScreen()),
-              );
-            }
-            if (i == 4) {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfileScreen()),
-              );
-            }
-          },
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.history, size: 30), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_outline_rounded, size: 28), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.home_outlined, size: 30), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.location_on_outlined, size: 30), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.person_outline_rounded, size: 30), label: ''),
-          ],
-        ),
-      ),
+      bottomNavigationBar: const CustomBottomNavBar(currentIndex: 1),
     );
   }
 }

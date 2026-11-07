@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'freight_list_screen.dart';
 import '../main.dart';
+import 'map_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -21,7 +21,11 @@ class LoginScreen extends StatelessWidget {
             children: [
               const Text(
                 'Login',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Color(0xFF6C8EEF)),
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF6C8EEF),
+                ),
               ),
               const SizedBox(height: 30),
               const Text('Nome', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
@@ -42,7 +46,10 @@ class LoginScreen extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {},
-                  child: const Text('Esqueci minha senha', style: TextStyle(color: Color(0xFF6C8EEF), fontSize: 13)),
+                  child: const Text(
+                    'Esqueci minha senha',
+                    style: TextStyle(color: Color(0xFF6C8EEF), fontSize: 13),
+                  ),
                 ),
               ),
               const SizedBox(height: 16),
@@ -51,8 +58,8 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (_) => const FreightListScreen()),
-                    (route) => false,
+                    MaterialPageRoute(builder: (_) => const MapScreen()),
+                        (route) => false,
                   );
                 },
                 child: const Text('Entrar', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
@@ -78,8 +85,8 @@ class LoginScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (_) => const FreightListScreen()),
-                    (route) => false,
+                    MaterialPageRoute(builder: (_) => const MapScreen()),
+                        (route) => false,
                   );
                 },
                 icon: Image.asset(
@@ -90,7 +97,10 @@ class LoginScreen extends StatelessWidget {
                     return const Icon(Icons.g_mobiledata, size: 28, color: Colors.red);
                   },
                 ),
-                label: const Text('Continuar com Google', style: TextStyle(color: Colors.black87, fontSize: 15, fontWeight: FontWeight.w500)),
+                label: const Text(
+                  'Continuar com Google',
+                  style: TextStyle(color: Colors.black87, fontSize: 15, fontWeight: FontWeight.w500),
+                ),
               ),
             ],
           ),
