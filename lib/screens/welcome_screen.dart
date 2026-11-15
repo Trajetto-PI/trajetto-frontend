@@ -12,21 +12,21 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 10),
+              const SizedBox(height: 16),
               const Text(
                 'Bem-Vindo\nao Trajetto',
                 style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                  fontWeight: FontWeight.w900,
                   color: Color(0xFF6C8EEF),
-                  height: 1.2,
+                  height: 1.15,
                 ),
               ),
-              const SizedBox(height: 15),
+              const Spacer(flex: 2),
               Center(
                 child: Image.asset(
                   'assets/logo.png',
@@ -36,21 +36,32 @@ class WelcomeScreen extends StatelessWidget {
                   const Icon(Icons.navigation, size: 100, color: Color(0xFF6C8EEF)),
                 ),
               ),
-              const SizedBox(height: 15),
+              const Spacer(flex: 1),
               const Text(
                 'Direcione sua rota,\nmaximize seus lucros.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 21,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
+                  height: 1.25,
                 ),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 10),
               const Text(
                 'Conectando você ao melhor caminho, com rapidez e segurança.',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13, color: Colors.grey),
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black54,
+                  height: 1.3,
+                ),
+              ),
+              const Spacer(flex: 2),
+              const Divider(
+                color: Color(0xFFEEEEEE),
+                thickness: 1,
+                height: 1,
               ),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -63,7 +74,7 @@ class WelcomeScreen extends StatelessWidget {
                 },
                 child: const Text('Login', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 12),
               ElevatedButton(
                 style: primaryButtonStyle,
                 onPressed: () {
@@ -74,10 +85,11 @@ class WelcomeScreen extends StatelessWidget {
                 },
                 child: const Text('Cadastre-se', style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 12),
               OutlinedButton.icon(
                 style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  minimumSize: const Size(double.infinity, 52),
+                  padding: EdgeInsets.zero,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
@@ -102,6 +114,7 @@ class WelcomeScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.black87, fontSize: 15, fontWeight: FontWeight.w500),
                 ),
               ),
+              const Spacer(flex: 1),
             ],
           ),
         ),

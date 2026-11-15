@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.ACESS_COARSE_LOCATION"/>
 
     <application
-        android:label="trajetto"
+        android:label="Trajetto"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
