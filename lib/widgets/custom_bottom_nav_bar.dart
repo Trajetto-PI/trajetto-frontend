@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../screens/chat_list_screen.dart';
+import '../screens/financial_screen.dart';
 import '../screens/freight_list_screen.dart';
 import '../screens/map_screen.dart';
 import '../screens/profile_screen.dart';
@@ -20,8 +21,8 @@ class CustomBottomNavBar extends StatelessWidget {
 
     switch (index) {
       case 0:
-      // Histórico (ou mantemos em fretes enquanto não houver tela específica)
-        nextScreen = const FreightListScreen();
+      // Financeiro (em desenvolvimento)
+        nextScreen = const FinancialScreen();
         break;
       case 1:
       // Chat
@@ -71,7 +72,7 @@ class CustomBottomNavBar extends StatelessWidget {
         elevation: 0,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.history, size: 28),
+            icon: Icon(Icons.attach_money_rounded, size: 28),
             label: '',
           ),
           BottomNavigationBarItem(
