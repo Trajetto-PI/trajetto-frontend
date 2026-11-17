@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
+import '../widgets/floating_search_bar.dart';
 import 'freight_detail_screen.dart';
 
 class FreightListScreen extends StatefulWidget {
@@ -12,38 +13,38 @@ class FreightListScreen extends StatefulWidget {
 class _FreightListScreenState extends State<FreightListScreen> {
 
   final List<Map<String, String>> freights = [
-    {
-      'origin': 'Recife',
-      'destination': 'Caruaru',
-      'type': 'Carga Móveis (800kg)',
-      'price': 'R\$ 4,00/km',
-      'status': 'Disponível',
-      'statusColor': 'green'
-    },
-    {
-      'origin': 'Recife',
-      'destination': 'Garanhuns',
-      'type': 'Carga Móveis (800kg)',
-      'price': 'R\$ 4,00/km',
-      'status': 'Em negociação',
-      'statusColor': 'amber'
-    },
-    {
-      'origin': 'Recife',
-      'destination': 'Caruaru',
-      'type': 'Carga Móveis (800kg)',
-      'price': 'R\$ 4,00/km',
-      'status': 'Em negociação',
-      'statusColor': 'amber'
-    },
-    {
-      'origin': 'Recife',
-      'destination': 'Gravatá',
-      'type': 'Carga Móveis (800kg)',
-      'price': 'R\$ 4,00/km',
-      'status': 'Disponível',
-      'statusColor': 'green'
-    },
+  {
+  'origin': 'Recife',
+  'destination': 'Caruaru',
+  'type': 'Carga Móveis (800kg)',
+  'price': 'R\$ 4,00/km',
+  'status': 'Disponível',
+  'statusColor': 'green'
+  },
+  {
+  'origin': 'Recife',
+  'destination': 'Garanhuns',
+  'type': 'Carga Móveis (800kg)',
+  'price': 'R\$ 4,00/km',
+  'status': 'Em negociação',
+  'statusColor': 'amber'
+  },
+  {
+  'origin': 'Recife',
+  'destination': 'Caruaru',
+  'type': 'Carga Móveis (800kg)',
+  'price': 'R\$ 4,00/km',
+  'status': 'Em negociação',
+  'statusColor': 'amber'
+  },
+  {
+  'origin': 'Recife',
+  'destination': 'Gravatá',
+  'type': 'Carga Móveis (800kg)',
+  'price': 'R\$ 4,00/km',
+  'status': 'Disponível',
+  'statusColor': 'green'
+  },
   ];
 
   @override
@@ -56,23 +57,13 @@ class _FreightListScreenState extends State<FreightListScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: const Color(0xFFE0E0E0)),
-                ),
-                child: const TextField(
-                  style: TextStyle(fontSize: 16),
-                  decoration: InputDecoration(
-                    hintText: 'Para onde vamos?',
-                    hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
-                    prefixIcon: Icon(
-                        Icons.search, color: Colors.black54, size: 26),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 16),
-                  ),
-                ),
+              FloatingSearchBar(
+                isEditable: true,
+                margin: EdgeInsets.zero,
+                hintText: 'Para onde vamos?',
+                onChanged: (value) {
+                  // Lógica de filtro de fretes aqui
+                },
               ),
               const SizedBox(height: 24),
               const Text(

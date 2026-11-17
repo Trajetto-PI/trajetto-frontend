@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_bottom_nav_bar.dart';
+import '../widgets/floating_search_bar.dart';
 import 'chat_detail_screen.dart';
 
 class ChatListScreen extends StatelessWidget {
@@ -15,22 +16,14 @@ class ChatListScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // 1. BARRA DE PESQUISA
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Para onde vamos?',
-                  hintStyle: TextStyle(color: Colors.grey.shade400, fontSize: 15),
-                  prefixIcon: Icon(Icons.search, color: Colors.grey.shade600),
-                  contentPadding: const EdgeInsets.symmetric(vertical: 12.0),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(color: Colors.grey.shade300, width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(color: Colors.grey.shade400, width: 1),
-                  ),
-                ),
+              // 1. BARRA DE PESQUISA PADRONIZADA
+              FloatingSearchBar(
+                isEditable: true,
+                margin: EdgeInsets.zero,
+                hintText: 'Para onde vamos?',
+                onChanged: (value) {
+                  // Lógica de filtro de conversas aqui
+                },
               ),
               const SizedBox(height: 24),
 

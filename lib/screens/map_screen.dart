@@ -299,7 +299,7 @@ class _MapScreenState extends State<MapScreen> {
           // 3. TOPO: MODO NAVEGAÇÃO OU BARRA DE PESQUISA NORMAL
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               child: _isNavigating && _routeData != null && _routeData!.steps.isNotEmpty
                   ? Container(
                 padding: const EdgeInsets.all(14),
@@ -354,6 +354,7 @@ class _MapScreenState extends State<MapScreen> {
                 ),
               )
                   : FloatingSearchBar(
+                margin: EdgeInsets.zero,
                 onTap: () async {
                   final PlaceSuggestion? place = await Navigator.push(
                     context,
